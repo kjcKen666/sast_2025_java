@@ -1,0 +1,8 @@
+{
+  "input": {
+    "s": "aaaaaa"
+  },
+  "output": {
+    "answer": "aaaaaa"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "s": "abacdfgdcaba"
+  },
+  "output": {
+    "answer": "aba"
+  }
+}

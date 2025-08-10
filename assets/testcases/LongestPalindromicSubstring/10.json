@@ -1,0 +1,8 @@
+{
+  "input": {
+    "s": "xyzabcddcbae123456"
+  },
+  "output": {
+    "answer": "abcddcba"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "s": "123abccba456"
+  },
+  "output": {
+    "answer": "abccba"
+  }
+}

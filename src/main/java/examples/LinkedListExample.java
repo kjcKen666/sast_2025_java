@@ -32,6 +32,10 @@ public class LinkedListExample {
         fruits.removeLast();    // 删除尾部
         fruits.remove("Banana");
 
+        // 是否包含元素
+        boolean hasCherry = fruits.contains("Cherry");
+        System.out.println("Contains Cherry? " + hasCherry);
+
         System.out.println("After deletion: " + fruits);
     }
 }

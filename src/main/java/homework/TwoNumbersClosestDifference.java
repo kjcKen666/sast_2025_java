@@ -6,7 +6,26 @@ import java.util.Scanner;
 public class TwoNumbersClosestDifference {
     public static int[] findClosestPair(int[] nums, int target) {
         // TODO begin
+        Arrays.sort(nums);
+        int left = 0, right = nums.length - 1;
+        int minDiff = Integer.MAX_VALUE;
+        int[] result = new int[2];
 
+        while (left < right) {
+            int diff = nums[right] - nums[left];
+            int gap = Math.abs(diff - target);
+            if (gap < minDiff) {
+                minDiff = gap;
+                result[0] = nums[left];
+                result[1] = nums[right];
+            }
+            if (diff < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return result;
         // TODO end
     }
 

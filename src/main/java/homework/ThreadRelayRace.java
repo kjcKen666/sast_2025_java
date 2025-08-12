@@ -21,17 +21,23 @@ class Runner extends Thread {
     @Override
     public void run() {
         try {
+            // 输出开始跑的信息
             System.out.println(name + " started running...");
-            // TODO: 随机生成 500~1500 毫秒的跑步时间
 
-            // TODO: 使用 Thread.sleep() 模拟跑步过程
+            // 随机生成 500~1500 毫秒的跑步时间
+            int time = 500 + random.nextInt(1000);
 
+            // 模拟跑步
+            Thread.sleep(time);
+
+            // 输出完成信息
             System.out.println(name + " finished! Time: " + time + " ms");
 
+            // 如果有下一位选手，则启动并等待其完成
             if (nextRunner != null) {
                 System.out.println(name + " passing baton to " + nextRunner);
-                // TODO: 如果有下一位选手，则启动并等待其完成
-
+                nextRunner.start();
+                nextRunner.join();
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -43,6 +49,7 @@ public class ThreadRelayRace {
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
+        // 手动输入选手人数
         System.out.print("Enter number of runners: ");
         int numRunners = scanner.nextInt();
 
@@ -50,9 +57,17 @@ public class ThreadRelayRace {
             System.out.println("Number of runners must be greater than 0.");
             return;
         }
-        // TODO: 创建 Runner 数组，并按顺序链接（最后一位选手的 nextRunner 为 null）
 
-        // TODO: 启动第一位 Runner，并等待比赛结束
+        // 创建 Runner 数组，并按顺序链接
+        Runner[] runners = new Runner[numRunners];
+        for (int i = numRunners - 1; i >= 0; i--) {
+            Runner next = (i == numRunners - 1) ? null : runners[i + 1];
+            runners[i] = new Runner("Runner " + (i + 1), next);
+        }
+
+        // 启动第一位 Runner，并等待比赛结束
+        runners[0].start();
+        runners[0].join();
 
         System.out.println("Race finished!");
     }

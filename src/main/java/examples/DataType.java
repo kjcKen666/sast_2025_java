@@ -23,17 +23,24 @@ public class DataType {
         System.out.println("Boolean value: " + isJavaFun);
         System.out.println("Char value: " + letter);
 
-        // 引用类型：数组
+        // 引用类型：数组（Java 数组是对象）
         int[] scores = {85, 90, 95};
         System.out.println("First score: " + scores[0]);
+        System.out.println("Array length: " + scores.length); // Java 数组有 length 属性
+        System.out.println("All scores:");
+        for (int score : scores) {
+            System.out.println(score);
+        }
 
         char[] letters = {'a', 'b', 'c'};
         System.out.println("Last letter: " + letters[2]);
 
         // 引用类型：字符串
         String greeting = "Hello";
-        greeting += " Java!";
-        System.out.println("Greeting: " + greeting);
+        String original = greeting; // 保存原始引用
+        greeting += " Java!"; // 创建了新对象
+
+        System.out.println("the same object?: " + (greeting == original));
 
         // 使用 StringBuilder 进行拼接
         StringBuilder builder = new StringBuilder();

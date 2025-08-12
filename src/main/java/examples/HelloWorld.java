@@ -14,7 +14,6 @@ import java.util.Date;     // 再引入一个用于演示的类
 public class HelloWorld {
     // main 方法是程序的入口
     public static void main(String[] args) {
-        // 输出一行文本
         System.out.println("Welcome to Java!");
 
         // 创建 Scanner 对象读取用户输入
@@ -22,12 +21,12 @@ public class HelloWorld {
         System.out.print("Please Enter your name:");
         String name = sc.nextLine();
 
-        // 输出带用户输入的字符串
         System.out.println("Hello," + name + "!");
 
-        // 显示当前时间
-        Date now = new Date();
-        System.out.println("It is: " + now);
+        System.out.print("Please Enter your age:");
+        int age = sc.nextInt();
+
+        System.out.println("You are" + age + "years old now");
 
         // 关闭 Scanner，避免资源泄露
         sc.close();
